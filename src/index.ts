@@ -4,6 +4,7 @@ export * from "./errors";
 export * from "./interfaces";
 
 export { buildSchema, buildSchemaSync, BuildSchemaOptions } from "./utils/buildSchema";
+export { buildResolversMap, ResolversMap } from "./utils/buildResolversMap";
 export {
   emitSchemaDefinitionFile,
   emitSchemaDefinitionFileSync,
