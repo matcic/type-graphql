@@ -13,6 +13,7 @@ import { GraphQLTimestamp } from "../scalars/timestamp";
 import { GraphQLISODateTime } from "../scalars/isodate";
 import { BuildContext } from "../schema/build-context";
 import { WrongNullableListOptionError, ConflictingDefaultWithNullableError } from "../errors";
+import { plainToClass } from "class-transformer";
 
 export function convertTypeIfScalar(type: any): GraphQLScalarType | undefined {
   if (type instanceof GraphQLScalarType) {
@@ -102,7 +103,8 @@ export function convertToType(Target: any, data?: object): object | undefined {
     return data;
   }
 
-  return Object.assign(new Target(), data);
+  // return Object.assign(new Target(), data);
+  return plainToClass(Target, data);
 }
 
 export function getEnumValuesMap<T extends object>(enumObject: T) {
