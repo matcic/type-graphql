@@ -1,10 +1,10 @@
+import * as del from "del";
+import * as gulp from "gulp";
+import * as replace from "gulp-replace";
+import * as shell from "gulp-shell";
+import * as ts from "gulp-typescript";
 import { Gulpclass, MergedTask, SequenceTask, Task } from "gulpclass";
 
-import * as gulp from "gulp";
-import * as del from "del";
-import * as shell from "gulp-shell";
-import * as replace from "gulp-replace";
-import * as ts from "gulp-typescript";
 // import tslint from "gulp-tslint";
 // const stylish = require("tslint-stylish");
 // const sourcemaps = require("gulp-sourcemaps");
@@ -69,10 +69,10 @@ export class Gulpfile {
   /**
    * Moves all compiled files to the final package directory.
    */
-  // @Task()
-  // packageMoveCompiledFiles() {
-  //   return gulp.src("./build/package/src/**/*").pipe(gulp.dest("./build/package/dist"));
-  // }
+  @Task()
+  packageMoveCompiledFiles() {
+    return gulp.src("./build/package/src/**/*").pipe(gulp.dest("./build/package/dist"));
+  }
 
   /**
    * Removes unnecessary files from final package directory.
